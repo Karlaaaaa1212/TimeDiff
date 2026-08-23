@@ -1,0 +1,24 @@
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+Use GPU: cuda:0
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+stride  : 21 days | 60 blocks (last one adds 19 days) | samples 500
+path    : 2020-01-02 ~ 2024-12-31  (1258 days)
+  wrote 100/500 paths
+  wrote 200/500 paths
+  wrote 300/500 paths
+  wrote 400/500 paths
+  wrote 500/500 paths
+saved paths_simple_returns/ , paths_prices/ 500 files each
+saved pred_simple_returns.csv            12580 rows
+saved true_simple_returns.csv            12580 rows
+saved pred_prices.csv                    12580 rows
+saved true_prices.csv                    12580 rows
+Traceback (most recent call last):
+  File "/mnt/sda1/hsinyuuu47/TimeDiff/predict_path.py", line 217, in <module>
+    main()
+  File "/mnt/sda1/hsinyuuu47/TimeDiff/predict_path.py", line 186, in main
+    label='10-90% of %d paths' % S if v == 0 else None)
+          ~~~~~~~~~~~~~~~~~~~~~^~~
+TypeError: not enough arguments for format string

@@ -1,0 +1,72 @@
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+Use GPU: cuda:0
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+output  : ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast
+knob    : none | guidance 1
+stride  : 21 days | 60 blocks (last one adds 19 days) | samples 500
+path    : 2020-01-02 ~ 2024-12-31  (1258 days)
+  wrote 100/500 paths
+  wrote 200/500 paths
+  wrote 300/500 paths
+  wrote 400/500 paths
+  wrote 500/500 paths
+saved paths_simple_returns/ , paths_prices/ 500 files each
+saved pred_simple_returns.csv            12580 rows
+saved true_simple_returns.csv            12580 rows
+saved pred_prices.csv                    12580 rows
+saved true_prices.csv                    12580 rows
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/stitched_path.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/volatility_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/volatility_check_by_ticker.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/distribution_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/distribution_check_by_ticker.png
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+Use GPU: cuda:0
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+output  : ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3
+knob    : -3 | guidance 1
+stride  : 21 days | 60 blocks (last one adds 19 days) | samples 500
+path    : 2020-01-02 ~ 2024-12-31  (1258 days)
+  wrote 100/500 paths
+  wrote 200/500 paths
+  wrote 300/500 paths
+  wrote 400/500 paths
+  wrote 500/500 paths
+saved paths_simple_returns/ , paths_prices/ 500 files each
+saved pred_simple_returns.csv            12580 rows
+saved true_simple_returns.csv            12580 rows
+saved pred_prices.csv                    12580 rows
+saved true_prices.csv                    12580 rows
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3/stitched_path.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3/volatility_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3/volatility_check_by_ticker.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3/distribution_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3/distribution_check_by_ticker.png
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+Use GPU: cuda:0
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+output  : ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3_w5
+knob    : -3 | guidance 5
+stride  : 21 days | 60 blocks (last one adds 19 days) | samples 500
+path    : 2020-01-02 ~ 2024-12-31  (1258 days)
+  wrote 100/500 paths
+  wrote 200/500 paths
+  wrote 300/500 paths
+  wrote 400/500 paths
+  wrote 500/500 paths
+saved paths_simple_returns/ , paths_prices/ 500 files each
+saved pred_simple_returns.csv            12580 rows
+saved true_simple_returns.csv            12580 rows
+saved pred_prices.csv                    12580 rows
+saved true_prices.csv                    12580 rows
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3_w5/stitched_path.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3_w5/volatility_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3_w5/volatility_check_by_ticker.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3_w5/distribution_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast_knob-3_w5/distribution_check_by_ticker.png

@@ -1,0 +1,151 @@
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+mode    : year | sample_times = 1
+Use GPU: cuda:0
+loaded  : ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/checkpoint.pth
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+channels: ['AAPL', 'AMGN', 'CRM', 'CSCO', 'IBM', 'INTC', 'MSFT', 'NKE', 'VZ', 'WMT']
+windows : [0, 21, 42, 63, 84, 105, 126, 147, 168, 189, 210, 231, 252, 273, 294, 315, 336, 357, 378, 399, 420, 441, 462, 483, 504, 525, 546, 567, 588, 609, 630, 651, 672, 693, 714, 735, 756, 777, 798, 819, 840, 861, 882, 903, 924, 945, 966, 987, 1008, 1029, 1050, 1071, 1092, 1113, 1134, 1155, 1176, 1197, 1218, 1239]
+tail    : last block is 19 of 21 steps (2024-12-04 ~ 2024-12-31)
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/AAPL_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/AAPL_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/AMGN_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/AMGN_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/CRM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/CRM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/CSCO_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/CSCO_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/IBM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/IBM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/INTC_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/INTC_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/MSFT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/MSFT_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/NKE_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/NKE_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/VZ_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/VZ_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/WMT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/WMT_price.png
+
+ticker   price MAPE% chain MAPE%   direction hit%    GBM MAPE%         GBM hit%
+AAPL            4.57       13.36             60.0         5.07             53.3
+AMGN            3.76       29.85             48.3         4.10             51.7
+CRM             5.88       19.31             56.7         6.26             53.3
+CSCO            3.67       10.51             48.3         4.11             56.7
+IBM             3.63       14.50             55.0         4.19             48.3
+INTC            5.34      160.93             51.7         6.01             56.7
+MSFT            3.97       27.33             56.7         4.24             60.0
+NKE             4.87       46.61             46.7         5.28             48.3
+VZ              3.07       12.36             48.3         3.48             46.7
+WMT             2.89        8.63             63.3         3.21             50.0
+(direction hit% = sign of the 21-step cumulative return, over 60 windows)
+(the last window is a short 19-step block and is included in every average above)
+(price MAPE% re-anchors every block on the real close; chain MAPE% is the continuous path, so its error compounds across blocks)
+(GBM = geometric Brownian motion, hist drift, 2000 paths fitted per input window)
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+mode    : year | sample_times = 20
+Use GPU: cuda:0
+loaded  : ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/checkpoint.pth
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+channels: ['AAPL', 'AMGN', 'CRM', 'CSCO', 'IBM', 'INTC', 'MSFT', 'NKE', 'VZ', 'WMT']
+windows : [0, 21, 42, 63, 84, 105, 126, 147, 168, 189, 210, 231, 252, 273, 294, 315, 336, 357, 378, 399, 420, 441, 462, 483, 504, 525, 546, 567, 588, 609, 630, 651, 672, 693, 714, 735, 756, 777, 798, 819, 840, 861, 882, 903, 924, 945, 966, 987, 1008, 1029, 1050, 1071, 1092, 1113, 1134, 1155, 1176, 1197, 1218, 1239]
+tail    : last block is 19 of 21 steps (2024-12-04 ~ 2024-12-31)
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/AAPL_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/AAPL_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/AMGN_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/AMGN_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/CRM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/CRM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/CSCO_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/CSCO_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/IBM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/IBM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/INTC_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/INTC_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/MSFT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/MSFT_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/NKE_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/NKE_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/VZ_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/VZ_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/WMT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots_band/WMT_price.png
+
+ticker   price MAPE% chain MAPE%   direction hit%    GBM MAPE%         GBM hit%
+AAPL            4.55       14.34             60.0         5.07             53.3
+AMGN            3.77       26.85             46.7         4.10             51.7
+CRM             5.90       19.52             51.7         6.26             53.3
+CSCO            3.67       10.68             48.3         4.11             56.7
+IBM             3.63       13.53             56.7         4.19             48.3
+INTC            5.34      167.44             51.7         6.01             56.7
+MSFT            3.98       27.83             58.3         4.24             60.0
+NKE             4.85       46.66             46.7         5.28             48.3
+VZ              3.08       12.32             50.0         3.48             46.7
+WMT             2.89        8.69             60.0         3.21             50.0
+(direction hit% = sign of the 21-step cumulative return, over 60 windows)
+(the last window is a short 19-step block and is included in every average above)
+(price MAPE% re-anchors every block on the real close; chain MAPE% is the continuous path, so its error compounds across blocks)
+(GBM = geometric Brownian motion, hist drift, 2000 paths fitted per input window)
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+mode    : year | sample_times = 1
+Use GPU: cuda:0
+loaded  : ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/checkpoint.pth
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+channels: ['AAPL', 'AMGN', 'CRM', 'CSCO', 'IBM', 'INTC', 'MSFT', 'NKE', 'VZ', 'WMT']
+windows : [0, 21, 42, 63, 84, 105, 126, 147, 168, 189, 210, 231, 252, 273, 294, 315, 336, 357, 378, 399, 420, 441, 462, 483, 504, 525, 546, 567, 588, 609, 630, 651, 672, 693, 714, 735, 756, 777, 798, 819, 840, 861, 882, 903, 924, 945, 966, 987, 1008, 1029, 1050, 1071, 1092, 1113, 1134, 1155, 1176, 1197, 1218, 1239]
+tail    : last block is 19 of 21 steps (2024-12-04 ~ 2024-12-31)
+knob    : -3.0
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/AAPL_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/AAPL_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/AMGN_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/AMGN_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/CRM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/CRM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/CSCO_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/CSCO_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/IBM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/IBM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/INTC_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/INTC_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/MSFT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/MSFT_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/NKE_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/NKE_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/VZ_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/VZ_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/WMT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/WMT_price.png
+
+ticker   price MAPE% chain MAPE%   direction hit%    GBM MAPE%         GBM hit%
+AAPL            4.57       13.36             60.0          nan              nan
+AMGN            3.76       29.85             48.3          nan              nan
+CRM             5.88       19.31             56.7          nan              nan
+CSCO            3.67       10.51             48.3          nan              nan
+IBM             3.63       14.50             55.0          nan              nan
+INTC            5.34      160.93             51.7          nan              nan
+MSFT            3.97       27.33             56.7          nan              nan
+NKE             4.87       46.61             46.7          nan              nan
+VZ              3.07       12.36             48.3          nan              nan
+WMT             2.89        8.63             63.3          nan              nan
+(direction hit% = sign of the 21-step cumulative return, over 60 windows)
+(the last window is a short 19-step block and is included in every average above)
+(price MAPE% re-anchors every block on the real close; chain MAPE% is the continuous path, so its error compounds across blocks)
+
+mean 21-day cumulative log return per window
+ticker     realized     no knob     knob -3
+AAPL         0.0210      0.0191      0.0226
+AMGN         0.0038      0.0121      0.0003
+CRM          0.0121      0.0035      0.0116
+CSCO         0.0061      0.0054      0.0023
+IBM          0.0129      0.0078      0.0118
+INTC        -0.0161      0.0159      0.0149
+MSFT         0.0171      0.0086      0.0131
+NKE         -0.0039      0.0128      0.0140
+VZ          -0.0025     -0.0024      0.0004
+WMT          0.0150      0.0077      0.0146

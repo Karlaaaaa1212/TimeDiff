@@ -1,0 +1,459 @@
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+flags   : --dataset_name stock --seq_len 63 --label_len 21 --pred_len 21     --ddpm_layers_I 5 --cond_ddpm_channels_conv 32 --ddpm_layers_inp 5     --ablation_study_F_type Linear --cond_ddpm_num_layers 30 --ddpm_layers_II 10 --tag v --parameterization v
+gpu     : 1
+===== [1/5] pretrain 10 + train 100 + test =====
++ python main_ddpm.py --dataset_name stock --seq_len 63 --label_len 21 --pred_len 21 --ddpm_layers_I 5 --cond_ddpm_channels_conv 32 --ddpm_layers_inp 5 --ablation_study_F_type Linear --cond_ddpm_num_layers 30 --ddpm_layers_II 10 --tag v --parameterization v --is_training 1 --pretrain_epochs 10 --train_epochs 100 --learning_rate 0.0001 --batch_size 64 --test_batch_size 32
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+Args in experiment:
+Namespace(ii=0, use_window_normalization=False, stage_mode='TWO', is_training=1, out_figures=1, vis_ar_part=0, vis_MTS_analysis=1, vis_history_len=336, vis_channel=0, model='DDPM', train_epochs=100, pretrain_epochs=10, sample_times=1, beta_dist_alpha=-1, our_ddpm_clip=100, seq_len=63, label_len=21, pred_len=21, dataset_name='stock', weather_type='mintemp', stock_file='stock_logret.csv', train_start='2008-01-01', train_end='2017-12-29', val_start='2018-01-02', val_end='2019-12-31', test_start='2020-01-02', test_end='2024-12-31', eval_stride=1, use_knob=1, knob_type='cumret', knob_p_uncond=0.15, knob=None, knob_channels='close', knob_guidance=1.0, features='M', target='WMT_r_low', num_vars=30, checkpoints='./checkpoints/', freq='b', interval=1000, ot_ode=True, beta_max=0.3, t0=0.0001, T=1.0, model_channels=256, nfe=100, dim_LSTM=64, diff_steps=100, UNet_Type='CNN', D3PM_kernel_size=5, use_freq_enhance=0, type_sampler='dpm', parameterization='v', ddpm_inp_embed=256, ddpm_dim_diff_steps=256, ddpm_channels_conv=256, ddpm_channels_fusion_I=256, ddpm_layers_inp=5, ddpm_layers_I=5, ddpm_layers_II=10, cond_ddpm_num_layers=30, cond_ddpm_channels_conv=32, ablation_study_case='none', weight_pred_loss=0.0, ablation_study_F_type='Linear', ablation_study_masking_type='none', ablation_study_masking_tau=0.9, learning_rate=0.0001, embed='timeF', use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1,2,3', seed=2021, num_workers=0, itr=1, batch_size=64, test_batch_size=32, use_amp=False, tag='v', DATAdir='./datasets', data='stock', model_id='stock_63_21', root_path='./datasets/prediction/stock/', data_path='stock_logret.csv', use_valset=True, knob_close_idx=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+Use GPU: cuda:0
+>>>>>>>start pretraining : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v>>>>>>>>>>>>>>>>>>>>>>>>>>
+> train-shape (2517, 30) | rows 2008-01-03 ~ 2017-12-29 | windows: 2434
+train 2434
+> val-shape (566, 30) | rows 2017-10-02 ~ 2019-12-31 | windows: 483
+val 483
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+PreTraining Epoch: 1 cost time: 0.23244690895080566
+PreTraining Epoch: 1, Steps: 38 | Train Loss: 1.3031080 
+-------------------------
+PreTraining Epoch: 2 cost time: 0.09323906898498535
+PreTraining Epoch: 2, Steps: 38 | Train Loss: 1.2778676 
+-------------------------
+PreTraining Epoch: 3 cost time: 0.09319281578063965
+PreTraining Epoch: 3, Steps: 38 | Train Loss: 1.2658880 
+-------------------------
+PreTraining Epoch: 4 cost time: 0.09349846839904785
+PreTraining Epoch: 4, Steps: 38 | Train Loss: 1.2482615 
+-------------------------
+PreTraining Epoch: 5 cost time: 0.09383320808410645
+PreTraining Epoch: 5, Steps: 38 | Train Loss: 1.2327381 
+-------------------------
+PreTraining Epoch: 6 cost time: 0.0936737060546875
+PreTraining Epoch: 6, Steps: 38 | Train Loss: 1.2176193 
+-------------------------
+PreTraining Epoch: 7 cost time: 0.09341311454772949
+PreTraining Epoch: 7, Steps: 38 | Train Loss: 1.2034926 
+-------------------------
+PreTraining Epoch: 8 cost time: 0.09359931945800781
+PreTraining Epoch: 8, Steps: 38 | Train Loss: 1.1900326 
+-------------------------
+PreTraining Epoch: 9 cost time: 0.09337162971496582
+PreTraining Epoch: 9, Steps: 38 | Train Loss: 1.1771593 
+-------------------------
+PreTraining Epoch: 10 cost time: 0.09421157836914062
+PreTraining Epoch: 10, Steps: 38 | Train Loss: 1.1654287 
+-------------------------
+>>>>>>>start training : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v>>>>>>>>>>>>>>>>>>>>>>>>>>
+Successfully loading pretrained model!
+> train-shape (2517, 30) | rows 2008-01-03 ~ 2017-12-29 | windows: 2434
+train 2434
+> val-shape (566, 30) | rows 2017-10-02 ~ 2019-12-31 | windows: 483
+val 483
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+Epoch: 1 cost time: 0.798877477645874
+Epoch: 1, Steps: 38 | Train Loss: 1.2191869 Val Loss: 1.9629531 
+-------------------------
+Epoch: 2 cost time: 0.6051924228668213
+Epoch: 2, Steps: 38 | Train Loss: 1.0025486 Val Loss: 1.9284266 
+-------------------------
+Epoch: 3 cost time: 0.6151883602142334
+Epoch: 3, Steps: 38 | Train Loss: 0.9744668 Val Loss: 1.9461122 
+Epoch: 4 cost time: 0.599175214767456
+Epoch: 4, Steps: 38 | Train Loss: 0.9452779 Val Loss: 1.9294308 
+Epoch: 5 cost time: 0.5757253170013428
+Epoch: 5, Steps: 38 | Train Loss: 0.9075484 Val Loss: 1.9496053 
+Epoch: 6 cost time: 0.5852386951446533
+Epoch: 6, Steps: 38 | Train Loss: 0.8813331 Val Loss: 1.9727784 
+Epoch: 7 cost time: 0.5814709663391113
+Epoch: 7, Steps: 38 | Train Loss: 0.8430974 Val Loss: 1.9801915 
+Epoch: 8 cost time: 0.5911970138549805
+Epoch: 8, Steps: 38 | Train Loss: 0.8361835 Val Loss: 1.9475665 
+Epoch: 9 cost time: 0.5711100101470947
+Epoch: 9, Steps: 38 | Train Loss: 0.8252007 Val Loss: 1.9316789 
+Epoch: 10 cost time: 0.6027166843414307
+Epoch: 10, Steps: 38 | Train Loss: 0.8227073 Val Loss: 1.9387748 
+Epoch: 11 cost time: 0.5642194747924805
+Epoch: 11, Steps: 38 | Train Loss: 0.8118639 Val Loss: 1.9398754 
+Epoch: 12 cost time: 0.5747168064117432
+Epoch: 12, Steps: 38 | Train Loss: 0.8122169 Val Loss: 1.9627130 
+Epoch: 13 cost time: 0.557318925857544
+Epoch: 13, Steps: 38 | Train Loss: 0.8050945 Val Loss: 1.9681140 
+Epoch: 14 cost time: 0.5585112571716309
+Epoch: 14, Steps: 38 | Train Loss: 0.8064635 Val Loss: 1.9972222 
+Epoch: 15 cost time: 0.5550806522369385
+Epoch: 15, Steps: 38 | Train Loss: 0.7977380 Val Loss: 2.0011823 
+Epoch: 16 cost time: 0.5423905849456787
+Epoch: 16, Steps: 38 | Train Loss: 0.7916347 Val Loss: 1.9843960 
+Epoch: 17 cost time: 0.5713276863098145
+Epoch: 17, Steps: 38 | Train Loss: 0.7974136 Val Loss: 1.9607211 
+Epoch: 18 cost time: 0.5511081218719482
+Epoch: 18, Steps: 38 | Train Loss: 0.7894015 Val Loss: 1.9588659 
+Epoch: 19 cost time: 0.5386941432952881
+Epoch: 19, Steps: 38 | Train Loss: 0.7851021 Val Loss: 1.9457527 
+Epoch: 20 cost time: 0.5479655265808105
+Epoch: 20, Steps: 38 | Train Loss: 0.7719143 Val Loss: 1.9503647 
+Epoch: 21 cost time: 0.5504424571990967
+Epoch: 21, Steps: 38 | Train Loss: 0.7813120 Val Loss: 1.9475375 
+Epoch: 22 cost time: 0.5679671764373779
+Epoch: 22, Steps: 38 | Train Loss: 0.7833263 Val Loss: 1.9205240 
+-------------------------
+Epoch: 23 cost time: 0.5649368762969971
+Epoch: 23, Steps: 38 | Train Loss: 0.7738696 Val Loss: 1.9200255 
+-------------------------
+Epoch: 24 cost time: 0.5716931819915771
+Epoch: 24, Steps: 38 | Train Loss: 0.7673960 Val Loss: 1.9356780 
+Epoch: 25 cost time: 0.574847936630249
+Epoch: 25, Steps: 38 | Train Loss: 0.7696192 Val Loss: 1.9183687 
+-------------------------
+Epoch: 26 cost time: 0.5628371238708496
+Epoch: 26, Steps: 38 | Train Loss: 0.7654199 Val Loss: 1.9302411 
+Epoch: 27 cost time: 0.5307722091674805
+Epoch: 27, Steps: 38 | Train Loss: 0.7659450 Val Loss: 1.9305801 
+Epoch: 28 cost time: 0.5709671974182129
+Epoch: 28, Steps: 38 | Train Loss: 0.7657483 Val Loss: 1.9198384 
+Epoch: 29 cost time: 0.5704679489135742
+Epoch: 29, Steps: 38 | Train Loss: 0.7593963 Val Loss: 1.9319221 
+Epoch: 30 cost time: 0.5653364658355713
+Epoch: 30, Steps: 38 | Train Loss: 0.7573975 Val Loss: 1.9236308 
+Epoch: 31 cost time: 0.5623598098754883
+Epoch: 31, Steps: 38 | Train Loss: 0.7585366 Val Loss: 1.9146843 
+-------------------------
+Epoch: 32 cost time: 0.5685644149780273
+Epoch: 32, Steps: 38 | Train Loss: 0.7557224 Val Loss: 1.9171484 
+Epoch: 33 cost time: 0.5655746459960938
+Epoch: 33, Steps: 38 | Train Loss: 0.7588359 Val Loss: 1.9178815 
+Epoch: 34 cost time: 0.5418331623077393
+Epoch: 34, Steps: 38 | Train Loss: 0.7469897 Val Loss: 1.9176552 
+Epoch: 35 cost time: 0.5528542995452881
+Epoch: 35, Steps: 38 | Train Loss: 0.7537129 Val Loss: 1.9198605 
+Epoch: 36 cost time: 0.5530996322631836
+Epoch: 36, Steps: 38 | Train Loss: 0.7513758 Val Loss: 1.9170020 
+Epoch: 37 cost time: 0.5545299053192139
+Epoch: 37, Steps: 38 | Train Loss: 0.7479400 Val Loss: 1.9004464 
+-------------------------
+Epoch: 38 cost time: 0.5738260746002197
+Epoch: 38, Steps: 38 | Train Loss: 0.7446329 Val Loss: 1.9026564 
+Epoch: 39 cost time: 0.5683679580688477
+Epoch: 39, Steps: 38 | Train Loss: 0.7436041 Val Loss: 1.8932092 
+-------------------------
+Epoch: 40 cost time: 0.5485184192657471
+Epoch: 40, Steps: 38 | Train Loss: 0.7422941 Val Loss: 1.8960217 
+Epoch: 41 cost time: 0.57586669921875
+Epoch: 41, Steps: 38 | Train Loss: 0.7361892 Val Loss: 1.9008110 
+Epoch: 42 cost time: 0.5857810974121094
+Epoch: 42, Steps: 38 | Train Loss: 0.7330651 Val Loss: 1.9056395 
+Epoch: 43 cost time: 0.5748777389526367
+Epoch: 43, Steps: 38 | Train Loss: 0.7349801 Val Loss: 1.9050168 
+Epoch: 44 cost time: 0.5922844409942627
+Epoch: 44, Steps: 38 | Train Loss: 0.7333831 Val Loss: 1.8890091 
+-------------------------
+Epoch: 45 cost time: 0.5966842174530029
+Epoch: 45, Steps: 38 | Train Loss: 0.7317137 Val Loss: 1.9007031 
+Epoch: 46 cost time: 0.576420783996582
+Epoch: 46, Steps: 38 | Train Loss: 0.7297186 Val Loss: 1.8773952 
+-------------------------
+Epoch: 47 cost time: 0.5875332355499268
+Epoch: 47, Steps: 38 | Train Loss: 0.7259654 Val Loss: 1.9035411 
+Epoch: 48 cost time: 0.5677483081817627
+Epoch: 48, Steps: 38 | Train Loss: 0.7262327 Val Loss: 1.8932179 
+Epoch: 49 cost time: 0.5935499668121338
+Epoch: 49, Steps: 38 | Train Loss: 0.7235243 Val Loss: 1.8906684 
+Epoch: 50 cost time: 0.606391429901123
+Epoch: 50, Steps: 38 | Train Loss: 0.7209240 Val Loss: 1.8938416 
+Epoch: 51 cost time: 0.6001131534576416
+Epoch: 51, Steps: 38 | Train Loss: 0.7193146 Val Loss: 1.9059448 
+Epoch: 52 cost time: 0.5981578826904297
+Epoch: 52, Steps: 38 | Train Loss: 0.7192747 Val Loss: 1.8994725 
+Epoch: 53 cost time: 0.5795133113861084
+Epoch: 53, Steps: 38 | Train Loss: 0.7147291 Val Loss: 1.9012954 
+Epoch: 54 cost time: 0.607802152633667
+Epoch: 54, Steps: 38 | Train Loss: 0.7148556 Val Loss: 1.8876333 
+Epoch: 55 cost time: 0.5964131355285645
+Epoch: 55, Steps: 38 | Train Loss: 0.7112796 Val Loss: 1.8904742 
+Epoch: 56 cost time: 0.6048364639282227
+Epoch: 56, Steps: 38 | Train Loss: 0.7136454 Val Loss: 1.8991393 
+Epoch: 57 cost time: 0.5898046493530273
+Epoch: 57, Steps: 38 | Train Loss: 0.7140751 Val Loss: 1.8905065 
+Epoch: 58 cost time: 0.5646326541900635
+Epoch: 58, Steps: 38 | Train Loss: 0.7075369 Val Loss: 1.8917446 
+Epoch: 59 cost time: 0.592156171798706
+Epoch: 59, Steps: 38 | Train Loss: 0.7109526 Val Loss: 1.9044299 
+Epoch: 60 cost time: 0.5657844543457031
+Epoch: 60, Steps: 38 | Train Loss: 0.7086406 Val Loss: 1.8964542 
+Epoch: 61 cost time: 0.6079733371734619
+Epoch: 61, Steps: 38 | Train Loss: 0.7078652 Val Loss: 1.8859681 
+Epoch: 62 cost time: 0.599586009979248
+Epoch: 62, Steps: 38 | Train Loss: 0.7057707 Val Loss: 1.8853779 
+Epoch: 63 cost time: 0.5922012329101562
+Epoch: 63, Steps: 38 | Train Loss: 0.7042807 Val Loss: 1.8957111 
+Epoch: 64 cost time: 0.6033294200897217
+Epoch: 64, Steps: 38 | Train Loss: 0.7018511 Val Loss: 1.9005558 
+Epoch: 65 cost time: 0.568138599395752
+Epoch: 65, Steps: 38 | Train Loss: 0.7011625 Val Loss: 1.8903143 
+Epoch: 66 cost time: 0.5750739574432373
+Epoch: 66, Steps: 38 | Train Loss: 0.6999797 Val Loss: 1.8883597 
+Epoch: 67 cost time: 0.5808215141296387
+Epoch: 67, Steps: 38 | Train Loss: 0.7019568 Val Loss: 1.8808357 
+Epoch: 68 cost time: 0.5674948692321777
+Epoch: 68, Steps: 38 | Train Loss: 0.6977394 Val Loss: 1.8887788 
+Epoch: 69 cost time: 0.5598404407501221
+Epoch: 69, Steps: 38 | Train Loss: 0.6955546 Val Loss: 1.8888596 
+Epoch: 70 cost time: 0.5468878746032715
+Epoch: 70, Steps: 38 | Train Loss: 0.6958024 Val Loss: 1.8861365 
+Epoch: 71 cost time: 0.6232221126556396
+Epoch: 71, Steps: 38 | Train Loss: 0.6978842 Val Loss: 1.8867781 
+Epoch: 72 cost time: 0.5829930305480957
+Epoch: 72, Steps: 38 | Train Loss: 0.6985442 Val Loss: 1.8756685 
+-------------------------
+Epoch: 73 cost time: 0.601337194442749
+Epoch: 73, Steps: 38 | Train Loss: 0.6937824 Val Loss: 1.8870025 
+Epoch: 74 cost time: 0.5575408935546875
+Epoch: 74, Steps: 38 | Train Loss: 0.6911244 Val Loss: 1.8887751 
+Epoch: 75 cost time: 0.5750641822814941
+Epoch: 75, Steps: 38 | Train Loss: 0.6935035 Val Loss: 1.8888113 
+Epoch: 76 cost time: 0.5677294731140137
+Epoch: 76, Steps: 38 | Train Loss: 0.6942214 Val Loss: 1.8793705 
+Epoch: 77 cost time: 0.5498218536376953
+Epoch: 77, Steps: 38 | Train Loss: 0.6933887 Val Loss: 1.8899691 
+Epoch: 78 cost time: 0.564007043838501
+Epoch: 78, Steps: 38 | Train Loss: 0.6927548 Val Loss: 1.8889815 
+Epoch: 79 cost time: 0.5607995986938477
+Epoch: 79, Steps: 38 | Train Loss: 0.6925946 Val Loss: 1.8863919 
+Epoch: 80 cost time: 0.5642218589782715
+Epoch: 80, Steps: 38 | Train Loss: 0.6922380 Val Loss: 1.8834248 
+Epoch: 81 cost time: 0.5311827659606934
+Epoch: 81, Steps: 38 | Train Loss: 0.6900471 Val Loss: 1.8870932 
+Epoch: 82 cost time: 0.5695662498474121
+Epoch: 82, Steps: 38 | Train Loss: 0.6919296 Val Loss: 1.8811822 
+Epoch: 83 cost time: 0.5556871891021729
+Epoch: 83, Steps: 38 | Train Loss: 0.6910964 Val Loss: 1.8849301 
+Epoch: 84 cost time: 0.5452499389648438
+Epoch: 84, Steps: 38 | Train Loss: 0.6897199 Val Loss: 1.8659959 
+-------------------------
+Epoch: 85 cost time: 0.5630233287811279
+Epoch: 85, Steps: 38 | Train Loss: 0.6903271 Val Loss: 1.8945620 
+Epoch: 86 cost time: 0.5662498474121094
+Epoch: 86, Steps: 38 | Train Loss: 0.6872357 Val Loss: 1.8896190 
+Epoch: 87 cost time: 0.5429010391235352
+Epoch: 87, Steps: 38 | Train Loss: 0.6914480 Val Loss: 1.8843338 
+Epoch: 88 cost time: 0.5402748584747314
+Epoch: 88, Steps: 38 | Train Loss: 0.6875038 Val Loss: 1.8842045 
+Epoch: 89 cost time: 0.5444991588592529
+Epoch: 89, Steps: 38 | Train Loss: 0.6884071 Val Loss: 1.8826234 
+Epoch: 90 cost time: 0.5205082893371582
+Epoch: 90, Steps: 38 | Train Loss: 0.6893739 Val Loss: 1.8848447 
+Epoch: 91 cost time: 0.564871072769165
+Epoch: 91, Steps: 38 | Train Loss: 0.6852116 Val Loss: 1.8842056 
+Epoch: 92 cost time: 0.5696120262145996
+Epoch: 92, Steps: 38 | Train Loss: 0.6884264 Val Loss: 1.8765988 
+Epoch: 93 cost time: 0.5577774047851562
+Epoch: 93, Steps: 38 | Train Loss: 0.6867239 Val Loss: 1.8808051 
+Epoch: 94 cost time: 0.5483803749084473
+Epoch: 94, Steps: 38 | Train Loss: 0.6890528 Val Loss: 1.8806595 
+Epoch: 95 cost time: 0.5480313301086426
+Epoch: 95, Steps: 38 | Train Loss: 0.6896957 Val Loss: 1.8827872 
+Epoch: 96 cost time: 0.5699186325073242
+Epoch: 96, Steps: 38 | Train Loss: 0.6882193 Val Loss: 1.8905153 
+Epoch: 97 cost time: 0.5396273136138916
+Epoch: 97, Steps: 38 | Train Loss: 0.6861096 Val Loss: 1.8773209 
+Epoch: 98 cost time: 0.537722110748291
+Epoch: 98, Steps: 38 | Train Loss: 0.6891070 Val Loss: 1.8770192 
+Epoch: 99 cost time: 0.5435054302215576
+Epoch: 99, Steps: 38 | Train Loss: 0.6853168 Val Loss: 1.8816885 
+Epoch: 100 cost time: 0.5644924640655518
+Epoch: 100, Steps: 38 | Train Loss: 0.6915475 Val Loss: 1.8849751 
+[loss curve] saved to ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/loss_curve.png
+[loss curve] train: first10avg=0.925755 -> last10avg=0.687941 (-25.7%)
+[loss curve] val  : first10avg=1.948752 -> last10avg=1.881658 (-3.4%)
+>>>>>>>testing : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+Successfully loading trained model!
+Elapsed time: 5.02 ms
+Elapsed time: 5.11 ms
+Elapsed time: 5.26 ms
+Elapsed time: 5.13 ms
+Elapsed time: 5.11 ms
+id_worst 5
+top5 [ 4 25  7  5 15]
+(1238, 21, 30)
+(1238, 21)
+mse|mae|rmse|mape|mspe|corr
+2.0847883 1.0829527 1.4438796 9.124608 44167.477 0.42722937
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/test_predictions.csv
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/test_ground_truth.csv
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/volatility_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/volatility_check_by_ticker.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/distribution_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/distribution_check_by_ticker.png
+[stock] metrics appended to ./result_logs/result_stock.txt
+===== [2/5] loss curve =====
++ python plot_losses.py --setting stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v --print_every 10
+epochs recorded: train=100 val=100
+
+epoch |   train_loss |     val_mse
+    1 |    1.2191869 |   1.9629531
+   10 |    0.8227073 |   1.9387748
+   20 |    0.7719143 |   1.9503647
+   30 |    0.7573975 |   1.9236308
+   40 |    0.7422941 |   1.8960217
+   50 |    0.7209240 |   1.8938416
+   60 |    0.7086406 |   1.8964542
+   70 |    0.6958024 |   1.8861365
+   80 |    0.6922380 |   1.8834248
+   90 |    0.6893739 |   1.8848447
+  100 |    0.6915475 |   1.8849751
+[loss curve] saved to ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/loss_curve.png
+[loss curve] train: first10avg=0.925755 -> last10avg=0.687941 (-25.7%)
+[loss curve] val  : first10avg=1.948752 -> last10avg=1.881658 (-3.4%)
+
+train loss: 1st half mean=0.7943033 | 2nd half mean=0.6972561
+val   mse : 1st half mean=1.9298297 | 2nd half mean=1.8873825 | best epoch=84
+===== [3/5] price + logret plots =====
++ python plot_price.py --dataset_name stock --seq_len 63 --label_len 21 --pred_len 21 --ddpm_layers_I 5 --cond_ddpm_channels_conv 32 --ddpm_layers_inp 5 --ablation_study_F_type Linear --cond_ddpm_num_layers 30 --ddpm_layers_II 10 --tag v --parameterization v --plot_mode year --plot_band 1 --test_batch_size 16
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+mode    : year | sample_times = 1
+Use GPU: cuda:0
+loaded  : ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/checkpoint.pth
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+channels: ['AAPL', 'AMGN', 'CRM', 'CSCO', 'IBM', 'INTC', 'MSFT', 'NKE', 'VZ', 'WMT']
+windows : [0, 21, 42, 63, 84, 105, 126, 147, 168, 189, 210, 231, 252, 273, 294, 315, 336, 357, 378, 399, 420, 441, 462, 483, 504, 525, 546, 567, 588, 609, 630, 651, 672, 693, 714, 735, 756, 777, 798, 819, 840, 861, 882, 903, 924, 945, 966, 987, 1008, 1029, 1050, 1071, 1092, 1113, 1134, 1155, 1176, 1197, 1218, 1239]
+tail    : last block is 19 of 21 steps (2024-12-04 ~ 2024-12-31)
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/AAPL_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/AAPL_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/AMGN_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/AMGN_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/CRM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/CRM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/CSCO_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/CSCO_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/IBM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/IBM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/INTC_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/INTC_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/MSFT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/MSFT_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/NKE_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/NKE_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/VZ_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/VZ_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/WMT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/price_plots/WMT_price.png
+
+ticker   price MAPE% chain MAPE%   direction hit%    GBM MAPE%         GBM hit%
+AAPL            6.92       64.33             60.0         5.07             53.3
+AMGN            6.39       29.81             50.0         4.10             51.7
+CRM             8.54       54.69             51.7         6.26             53.3
+CSCO            6.37       49.16             56.7         4.11             56.7
+IBM             5.53       42.93             43.3         4.19             48.3
+INTC            7.77       30.52             38.3         6.01             56.7
+MSFT            6.12       33.69             60.0         4.24             60.0
+NKE             7.27       52.54             50.0         5.28             48.3
+VZ              4.82       23.73             60.0         3.48             46.7
+WMT             4.66       14.98             48.3         3.21             50.0
+(direction hit% = sign of the 21-step cumulative return, over 60 windows)
+(the last window is a short 19-step block and is included in every average above)
+(price MAPE% re-anchors every block on the real close; chain MAPE% is the continuous path, so its error compounds across blocks)
+(GBM = geometric Brownian motion, hist drift, 2000 paths fitted per input window)
+===== [4/5] knob comparison (knob=-3) =====
++ python plot_price.py --dataset_name stock --seq_len 63 --label_len 21 --pred_len 21 --ddpm_layers_I 5 --cond_ddpm_channels_conv 32 --ddpm_layers_inp 5 --ablation_study_F_type Linear --cond_ddpm_num_layers 30 --ddpm_layers_II 10 --tag v --parameterization v --plot_mode year --gbm 0 --knob_values=-3 --test_batch_size 16 --out_dir ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+mode    : year | sample_times = 1
+Use GPU: cuda:0
+loaded  : ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/checkpoint.pth
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+channels: ['AAPL', 'AMGN', 'CRM', 'CSCO', 'IBM', 'INTC', 'MSFT', 'NKE', 'VZ', 'WMT']
+windows : [0, 21, 42, 63, 84, 105, 126, 147, 168, 189, 210, 231, 252, 273, 294, 315, 336, 357, 378, 399, 420, 441, 462, 483, 504, 525, 546, 567, 588, 609, 630, 651, 672, 693, 714, 735, 756, 777, 798, 819, 840, 861, 882, 903, 924, 945, 966, 987, 1008, 1029, 1050, 1071, 1092, 1113, 1134, 1155, 1176, 1197, 1218, 1239]
+tail    : last block is 19 of 21 steps (2024-12-04 ~ 2024-12-31)
+knob    : -3.0
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/AAPL_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/AAPL_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/AMGN_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/AMGN_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/CRM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/CRM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/CSCO_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/CSCO_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/IBM_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/IBM_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/INTC_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/INTC_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/MSFT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/MSFT_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/NKE_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/NKE_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/VZ_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/VZ_price.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/WMT_logret.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/knob_plots/WMT_price.png
+
+ticker   price MAPE% chain MAPE%   direction hit%    GBM MAPE%         GBM hit%
+AAPL            6.92       64.33             60.0          nan              nan
+AMGN            6.39       29.81             50.0          nan              nan
+CRM             8.54       54.69             51.7          nan              nan
+CSCO            6.37       49.16             56.7          nan              nan
+IBM             5.53       42.93             43.3          nan              nan
+INTC            7.77       30.52             38.3          nan              nan
+MSFT            6.12       33.69             60.0          nan              nan
+NKE             7.27       52.54             50.0          nan              nan
+VZ              4.82       23.73             60.0          nan              nan
+WMT             4.66       14.98             48.3          nan              nan
+(direction hit% = sign of the 21-step cumulative return, over 60 windows)
+(the last window is a short 19-step block and is included in every average above)
+(price MAPE% re-anchors every block on the real close; chain MAPE% is the continuous path, so its error compounds across blocks)
+
+mean 21-day cumulative log return per window
+ticker     realized     no knob     knob -3
+AAPL         0.0210     -0.0200     -0.0181
+AMGN         0.0038     -0.0015     -0.1225
+CRM          0.0121     -0.0234     -0.0876
+CSCO         0.0061     -0.0239     -0.0603
+IBM          0.0129     -0.0007     -0.0638
+INTC        -0.0161     -0.0047     -0.0476
+MSFT         0.0171     -0.0027      0.0041
+NKE         -0.0039     -0.0274     -0.0604
+VZ          -0.0025      0.0090     -0.1034
+WMT          0.0150      0.0179     -0.0782
+===== [5/5] stitched path (stride 21, one continuous 2020-2024 line) =====
++ python predict_path.py --dataset_name stock --seq_len 63 --label_len 21 --pred_len 21 --ddpm_layers_I 5 --cond_ddpm_channels_conv 32 --ddpm_layers_inp 5 --ablation_study_F_type Linear --cond_ddpm_num_layers 30 --ddpm_layers_II 10 --tag v --parameterization v --test_batch_size 16
+[stock] tickers: ['AAPL_r_close', 'AMGN_r_close', 'CRM_r_close', 'CSCO_r_close', 'IBM_r_close', 'INTC_r_close', 'MSFT_r_close', 'NKE_r_close', 'VZ_r_close', 'WMT_r_close', 'AAPL_r_high', 'AMGN_r_high', 'CRM_r_high', 'CSCO_r_high', 'IBM_r_high', 'INTC_r_high', 'MSFT_r_high', 'NKE_r_high', 'VZ_r_high', 'WMT_r_high', 'AAPL_r_low', 'AMGN_r_low', 'CRM_r_low', 'CSCO_r_low', 'IBM_r_low', 'INTC_r_low', 'MSFT_r_low', 'NKE_r_low', 'VZ_r_low', 'WMT_r_low'] | features=M | num_vars=30 | target=WMT_r_low
+Use GPU: cuda:0
+> test-shape (1321, 30) | rows 2019-10-02 ~ 2024-12-31 | windows: 1238
+test 1238
+setting : stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v
+stride  : 21 days | 60 blocks (last one adds 19 days) | samples 1
+path    : 2020-01-02 ~ 2024-12-31  (1258 days)
+saved pred_simple_returns.csv      12580 rows
+saved true_simple_returns.csv      12580 rows
+saved pred_prices.csv              12580 rows
+saved true_prices.csv              12580 rows
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/stitched_path.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/volatility_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/volatility_check_by_ticker.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/distribution_check.png
+saved ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/path_forecast/distribution_check_by_ticker.png
+
+done -> ./checkpoints/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v/   (log: result_logs/stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v.log)
+  checkpoint.pth
+  distribution_check_by_ticker.png
+  distribution_check.png
+  knob_plots
+  loss_curve.png
+  losses.csv
+  losses.pkl
+  MTS_errors_hist.png
+  MTS_errors.png
+  path_forecast
+  pretrain_model_checkpoint.pth
+  price_plots
+  test_arrays.npz
+  test_ground_truth.csv
+  test_predictions.csv
+  volatility_check_by_ticker.png
+  volatility_check.png

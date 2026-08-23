@@ -1,0 +1,483 @@
+Stock runs only. Written by Exp_Main._write_stock_result; other datasets keep
+appending to result.txt.
+
+Errors are on the standardized series (the scaler is fitted on the train rows), so
+they are comparable only between runs that share a dataset and a split. Price-level
+numbers -- MAPE, direction hit rate, the knob sweep -- come from plot_price.py.
+
+################################################################################
+# LEGACY. Everything below this line predates the current setup and is kept only
+# for the record: it was produced on the 5-ticker file (NVDA AAPL MSFT GOOGL AMZN,
+# 2015-2024, 15 columns) with the old split (train 2015~2022-12-28 / val 2023 /
+# test 2024) and no knob. The scaler, the channels and the test period are all
+# different now, so these numbers are NOT comparable to the ones after it.
+################################################################################
+
+stock_504_250_DDPM_stock_ftM_sl504_ll126_pl250_dt0_TWO
+mse multivariate:0.7851090431213379, mae multivariate:0.6648139357566833
+mse univariate:0.8440656661987305, mae univariate:0.6931722164154053
+
+stock_504_250_DDPM_stock_ftM_sl504_ll126_pl250_dt0_TWO
+mse multivariate:0.7857859134674072, mae multivariate:0.6647771000862122
+mse univariate:0.8465034365653992, mae univariate:0.693516194820404
+
+stock_501_252_DDPM_stock_ftM_sl501_ll126_pl252_dt0_TWO
+mse multivariate:0.7911606431007385, mae multivariate:0.6684188842773438
+mse univariate:0.9167921543121338, mae univariate:0.7323749661445618
+
+stock_252_21_DDPM_stock_ftM_sl252_ll63_pl21_dt0_TWO
+mse multivariate:0.7761343717575073, mae multivariate:0.629141092300415
+mse univariate:0.6601823568344116, mae univariate:0.6061623692512512
+
+stock_252_21_DDPM_stock_ftM_sl252_ll63_pl21_dt0_TWO
+mse multivariate:0.7757053971290588, mae multivariate:0.6288607716560364
+mse univariate:0.6588598489761353, mae univariate:0.6058720946311951
+
+stock_501_252_DDPM_stock_ftM_sl501_ll126_pl252_dt0_TWO
+mse multivariate:0.7988077402114868, mae multivariate:0.6802007555961609
+mse univariate:0.6246647238731384, mae univariate:0.5954090356826782
+
+stock_501_252_DDPM_stock_ftM_sl501_ll126_pl252_dt0_TWO
+mse multivariate:0.7955400347709656, mae multivariate:0.6742157340049744
+mse univariate:0.6273587942123413, mae univariate:0.5924109220504761
+
+stock_501_252_DDPM_stock_ftM_sl501_ll126_pl252_dt0_TWO
+mse multivariate:0.7934009432792664, mae multivariate:0.6735736727714539
+mse univariate:0.623103678226471, mae univariate:0.5909286737442017
+
+stock_501_252_DDPM_stock_ftM_sl501_ll126_pl252_dt0_TWO
+mse multivariate:0.7934009432792664, mae multivariate:0.6735736727714539
+mse univariate:0.623103678226471, mae univariate:0.5909286737442017
+
+stock_252_63_DDPM_stock_ftM_sl252_ll63_pl63_dt0_TWO
+mse multivariate:0.798829972743988, mae multivariate:0.6315251588821411
+mse univariate:0.6865970492362976, mae univariate:0.6038216948509216
+
+stock_252_21_DDPM_stock_ftM_sl252_ll63_pl21_dt0_TWO
+mse multivariate:0.7780522108078003, mae multivariate:0.6347701549530029
+mse univariate:0.6594560146331787, mae univariate:0.6128032207489014
+
+stock_501_250_DDPM_stock_ftM_sl501_ll126_pl250_dt0_TWO_roll3y
+mse multivariate:1.903294563293457, mae multivariate:1.0560661554336548
+mse univariate:1.5692063570022583, mae univariate:0.9263476133346558
+
+################################################################################
+# Current setup: 10 tickers (AAPL AMGN CRM CSCO IBM INTC MSFT NKE VZ WMT),
+# 2008-2024, 30 columns; split train 2008-2017 / val 2018-2019 / test 2020-2024;
+# extreme-scenario knob available.
+################################################################################
+
+==============================================================================
+2026-08-16 16:24:27  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1216
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.117437  mae 0.707403  rmse 1.057089  mape 2.9342  mspe 9719.6514  corr 1.703122
+univariate (WMT_r_low): mse 1.114980  mae 0.649043
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.105718    0.751423
+  AMGN        0.991285    0.685465
+  CRM         0.989697    0.680496
+  CSCO        0.954693    0.647945
+  IBM         1.526257    0.810080
+  INTC        2.403692    1.032959
+  MSFT        1.261121    0.791607
+  NKE         1.589016    0.836233
+  VZ          1.010655    0.679360
+  WMT         1.385150    0.763313
+
+==============================================================================
+2026-08-16 16:30:55  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2020-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 224
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 2.367953  mae 0.981968  rmse 1.538815  mape 3.1686  mspe 7006.4253  corr -0.328932
+univariate (WMT_r_low): mse 3.457973  mae 1.080214
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        2.492730    1.113060
+  AMGN        2.270463    1.066079
+  CRM         1.750388    0.894658
+  CSCO        2.301906    0.996526
+  IBM         3.887947    1.357089
+  INTC        3.831609    1.201669
+  MSFT        2.820187    1.142754
+  NKE         2.378055    1.030712
+  VZ          1.428310    0.785273
+  WMT         2.872158    1.069669
+
+==============================================================================
+2026-08-16 16:41:03  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2020-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 224
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 2.368903  mae 0.979229  rmse 1.539124  mape 3.1699  mspe 7738.2812  corr -0.262936
+univariate (WMT_r_low): mse 3.411291  mae 1.068079
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        2.461658    1.101111
+  AMGN        2.240874    1.043578
+  CRM         1.744428    0.892291
+  CSCO        2.300413    0.996311
+  IBM         3.881073    1.356867
+  INTC        3.823965    1.194658
+  MSFT        2.822435    1.144574
+  NKE         2.383687    1.033436
+  VZ          1.421939    0.784423
+  WMT         2.902247    1.076260
+
+==============================================================================
+2026-08-16 16:51:09  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2020-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 224
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 2.365172  mae 0.983498  rmse 1.537912  mape 3.2790  mspe 7308.6782  corr -0.260020
+univariate (WMT_r_low): mse 3.402439  mae 1.078629
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        2.452834    1.097363
+  AMGN        2.246216    1.051700
+  CRM         1.737217    0.887519
+  CSCO        2.295391    0.996834
+  IBM         3.880207    1.356928
+  INTC        3.819551    1.196181
+  MSFT        2.815313    1.142931
+  NKE         2.383406    1.034645
+  VZ          1.426697    0.786866
+  WMT         2.896146    1.074431
+
+==============================================================================
+2026-08-19 14:51:36  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1236
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.112515  mae 0.707683  rmse 1.054758  mape 2.7676  mspe 5535.6191  corr 1.615182
+univariate (WMT_r_low): mse 1.090534  mae 0.652123
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.074531    0.737540
+  AMGN        0.987814    0.680607
+  CRM         0.994909    0.680800
+  CSCO        0.946773    0.646369
+  IBM         1.522973    0.811181
+  INTC        2.409740    1.036055
+  MSFT        1.248918    0.787666
+  NKE         1.572240    0.832616
+  VZ          1.009249    0.678813
+  WMT         1.393686    0.772682
+
+==============================================================================
+2026-08-20 10:18:43  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1216
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.116618  mae 0.710721  rmse 1.056701  mape 2.8018  mspe 4436.7344  corr 1.575365
+univariate (WMT_r_low): mse 1.131485  mae 0.649107
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.099150    0.747794
+  AMGN        0.996514    0.687371
+  CRM         1.014714    0.693393
+  CSCO        0.953208    0.649142
+  IBM         1.529544    0.811284
+  INTC        2.399129    1.030523
+  MSFT        1.260000    0.791984
+  NKE         1.597307    0.839348
+  VZ          1.009897    0.682738
+  WMT         1.388452    0.764447
+
+==============================================================================
+2026-08-20 10:20:53  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1216
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.116570  mae 0.710737  rmse 1.056679  mape 2.8032  mspe 4464.1963  corr 1.575054
+univariate (WMT_r_low): mse 1.132698  mae 0.649603
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.098955    0.747590
+  AMGN        0.997139    0.688080
+  CRM         1.014318    0.693133
+  CSCO        0.953376    0.649165
+  IBM         1.528689    0.811034
+  INTC        2.399661    1.030832
+  MSFT        1.259318    0.791328
+  NKE         1.597859    0.839773
+  VZ          1.010082    0.683081
+  WMT         1.388327    0.764513
+
+==============================================================================
+2026-08-20 10:22:54  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1216
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.116570  mae 0.710737  rmse 1.056679  mape 2.8032  mspe 4464.1963  corr 1.575054
+univariate (WMT_r_low): mse 1.132698  mae 0.649603
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.098955    0.747590
+  AMGN        0.997139    0.688080
+  CRM         1.014318    0.693133
+  CSCO        0.953376    0.649165
+  IBM         1.528689    0.811034
+  INTC        2.399661    1.030832
+  MSFT        1.259318    0.791328
+  NKE         1.597859    0.839773
+  VZ          1.010082    0.683081
+  WMT         1.388327    0.764513
+
+==============================================================================
+2026-08-20 10:35:41  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1216
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.119865  mae 0.708124  rmse 1.058237  mape 2.8401  mspe 5397.7671  corr 1.645053
+univariate (WMT_r_low): mse 1.119651  mae 0.648766
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.106525    0.751843
+  AMGN        0.982161    0.681464
+  CRM         0.988246    0.680113
+  CSCO        0.958976    0.652276
+  IBM         1.524963    0.809516
+  INTC        2.398349    1.030853
+  MSFT        1.260098    0.791951
+  NKE         1.583579    0.833553
+  VZ          1.013903    0.681912
+  WMT         1.399933    0.771145
+
+==============================================================================
+2026-08-20 11:15:50  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1216
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 2.085964  mae 1.083028  rmse 1.444287  mape 9.1533  mspe 42920.1680  corr 0.409746
+univariate (WMT_r_low): mse 2.043092  mae 1.050632
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        2.061904    1.105971
+  AMGN        1.949391    1.067777
+  CRM         1.946402    1.067273
+  CSCO        1.890435    1.041030
+  IBM         2.524516    1.171109
+  INTC        3.335880    1.321589
+  MSFT        2.233421    1.148900
+  NKE         2.603378    1.192028
+  VZ          2.011728    1.083028
+  WMT         2.377990    1.128032
+
+==============================================================================
+2026-08-20 16:24:38  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 59 (stride 21, non-overlapping: every day forecast once)
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.110752  mae 0.705569  rmse 1.053922  mape 2.5960  mspe 1413.3521  corr 0.407333
+univariate (WMT_r_low): mse 1.120381  mae 0.649441
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.076010    0.740726
+  AMGN        0.998287    0.685227
+  CRM         0.950956    0.667337
+  CSCO        0.937028    0.644978
+  IBM         1.490732    0.802094
+  INTC        2.379988    1.029601
+  MSFT        1.242885    0.786297
+  NKE         1.566674    0.829596
+  VZ          1.010107    0.682286
+  WMT         1.394335    0.774769
+
+==============================================================================
+2026-08-20 16:24:45  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 59 (stride 21, non-overlapping: every day forecast once)
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 2.092574  mae 1.083345  rmse 1.446573  mape 8.4863  mspe 17068.9492  corr 0.020040
+univariate (WMT_r_low): mse 2.059496  mae 1.046969
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        2.034977    1.103804
+  AMGN        2.090375    1.101515
+  CRM         1.853445    1.041205
+  CSCO        1.829827    1.034885
+  IBM         2.526317    1.163712
+  INTC        3.389696    1.317503
+  MSFT        2.190183    1.130154
+  NKE         2.513942    1.169786
+  VZ          2.034967    1.092607
+  WMT         2.447226    1.151680
+
+==============================================================================
+2026-08-20 16:38:11  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1216 (dense, one window per day)
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 2.087838  mae 1.083974  rmse 1.444935  mape 9.1770  mspe 44506.6875  corr 0.409148
+univariate (WMT_r_low): mse 2.040373  mae 1.051496
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        2.068408    1.108142
+  AMGN        1.946447    1.066754
+  CRM         1.956445    1.070271
+  CSCO        1.895568    1.042840
+  IBM         2.526922    1.171906
+  INTC        3.333659    1.321360
+  MSFT        2.237859    1.150248
+  NKE         2.606076    1.192759
+  VZ          2.012709    1.083378
+  WMT         2.379469    1.128298
+
+==============================================================================
+2026-08-20 16:38:15  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1216 (dense, one window per day)
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.120953  mae 0.707849  rmse 1.058751  mape 2.8490  mspe 4733.6699  corr 1.572826
+univariate (WMT_r_low): mse 1.143976  mae 0.650308
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.098104    0.748146
+  AMGN        1.000491    0.690388
+  CRM         1.003962    0.687325
+  CSCO        0.956471    0.649913
+  IBM         1.531279    0.812171
+  INTC        2.400449    1.030989
+  MSFT        1.264611    0.795110
+  NKE         1.595772    0.839729
+  VZ          1.013207    0.683922
+  WMT         1.397573    0.769963
+
+==============================================================================
+2026-08-21 14:04:00  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1238 (dense, one window per day)
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 2.086109  mae 1.084117  rmse 1.444337  mape 9.1412  mspe 42959.2422  corr 0.378639
+univariate (WMT_r_low): mse 2.053504  mae 1.053207
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        2.045384    1.105886
+  AMGN        1.946344    1.064227
+  CRM         1.968969    1.073620
+  CSCO        1.900320    1.043487
+  IBM         2.492905    1.164369
+  INTC        3.367561    1.331104
+  MSFT        2.222827    1.141672
+  NKE         2.574879    1.185272
+  VZ          2.006225    1.084534
+  WMT         2.358032    1.132362
+
+==============================================================================
+2026-08-21 14:04:00  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1238 (dense, one window per day)
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.118234  mae 0.707064  rmse 1.057466  mape 2.8297  mspe 4618.6025  corr 1.572949
+univariate (WMT_r_low): mse 1.133748  mae 0.648886
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.082851    0.741724
+  AMGN        1.005375    0.692028
+  CRM         1.006810    0.687262
+  CSCO        0.945072    0.645673
+  IBM         1.523250    0.811372
+  INTC        2.406918    1.036524
+  MSFT        1.250874    0.790062
+  NKE         1.579489    0.836602
+  VZ          1.008776    0.683022
+  WMT         1.390381    0.770810
+
+==============================================================================
+2026-08-21 14:15:54  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO_v  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1238 (dense, one window per day)
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 2.084788  mae 1.082953  rmse 1.443880  mape 9.1246  mspe 44167.4766  corr 0.427229
+univariate (WMT_r_low): mse 2.025035  mae 1.048570
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        2.056462    1.105499
+  AMGN        1.952258    1.067892
+  CRM         1.957934    1.070818
+  CSCO        1.883192    1.039898
+  IBM         2.513737    1.169826
+  INTC        3.343899    1.326618
+  MSFT        2.220912    1.145620
+  NKE         2.593922    1.191169
+  VZ          2.011743    1.083596
+  WMT         2.367161    1.126859
+
+==============================================================================
+2026-08-21 14:15:58  stock_63_21_DDPM_stock_ftM_sl63_ll21_pl21_dt0_TWO  [test]
+------------------------------------------------------------------------------
+window   : seq_len 63 -> pred_len 21 (label_len 21) | features M | num_vars 30
+split    : train 2008-01-01~2017-12-29 | val 2018-01-02~2019-12-31 | test 2020-01-02~2024-12-31
+knob     : use_knob 1 | p_uncond 0.15 | inference knob None | guidance 1.0 | channels close
+sampling : sample_times 1 | window_norm False | forecasts scored 1238 (dense, one window per day)
+(errors are on the standardized series; the scaler is fitted on the train rows)
+overall  : mse 1.114597  mae 0.709263  rmse 1.055745  mape 2.8443  mspe 4951.3438  corr 1.598727
+univariate (WMT_r_low): mse 1.114990  mae 0.648898
+per-ticker close return:
+  ticker           mse         mae
+  AAPL        1.096025    0.748332
+  AMGN        0.995762    0.685833
+  CRM         0.999878    0.685621
+  CSCO        0.949501    0.649095
+  IBM         1.525844    0.811841
+  INTC        2.404005    1.035787
+  MSFT        1.249050    0.788442
+  NKE         1.580325    0.836463
+  VZ          1.009383    0.682241
+  WMT         1.386387    0.768433
+
